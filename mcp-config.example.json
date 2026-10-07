@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "maxplus2": {
+      "command": "node",
+      "args": ["C:\\tools\\maxplus2-mcp\\server.mjs"],
+      "env": {
+        "MAXPLUS2_ROOT": "C:\\maxplus2",
+        "MAXPLUS2_WORKSPACE": "C:\\fpga-projects"
+      }
+    }
+  }
+}

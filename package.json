@@ -1,0 +1,31 @@
+{
+  "name": "maxplus2-mcp",
+  "version": "0.10.1",
+  "private": true,
+  "description": "Agent-independent MCP for MAX+plus II: file-first GDF netlist and SCF read/edit, project authoring, original CLI compilation/simulation and standalone Windows desktop control.",
+  "type": "module",
+  "main": "server.mjs",
+  "bin": {
+    "maxplus2-mcp": "server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node run-all.mjs",
+    "test:quick": "node run-all.mjs",
+    "test:native": "node run-all.mjs --native",
+    "test:desktop": "node test/desktop-native-e2e.mjs",
+    "audit:public": "node scripts/audit-public.mjs"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hachimeder/maxplus2-mcp.git"
+  },
+  "homepage": "https://github.com/Hachimeder/maxplus2-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/Hachimeder/maxplus2-mcp/issues"
+  }
+}
