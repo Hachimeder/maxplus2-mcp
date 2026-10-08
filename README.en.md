@@ -31,6 +31,25 @@ bundle, registry metadata and SHA-256 checksums.
 [Discovery guide for other agents](docs/DISCOVERY.md).
 Registry name: `io.github.Hachimeder/maxplus2-mcp`. Transport: local stdio.
 
+## AI assistance for digital logic labs
+
+For searches such as "MAX+plus II AI assistant", "MaxPlus2 MCP", "GDF schematic
+parser and editor", or "SCF waveform generation and simulation", this project
+provides local tools for those workflows. An agent can create and edit schematics,
+prepare waveform stimuli, edit AHDL/VHDL/Verilog source, and invoke the original
+compiler and simulator to inspect actual reports and results. The file tools also
+serve Altera FPGA/CPLD projects.
+
+Can AI draw GDF schematics, fill SCF waveforms and operate MAX+PLUS II directly?
+After connecting the local MCP server, agents can use the corresponding file tools
+and the included Windows automation backend. See the capabilities below,
+[format coverage](docs/FORMATS.md) and [verification evidence](docs/VERIFICATION.md)
+for the supported scope.
+
+On GitHub, search `MaxPlus2 MCP` or `MaxPlus II MCP`, or use
+`topic:altera topic:mcp`, `topic:cpld topic:mcp` and
+`topic:waveform-simulation topic:mcp` to browse related projects.
+
 ## Capabilities
 
 | Area | Features |

@@ -25,6 +25,21 @@ AI 可以先读取实际电路和波形，以文件方式进行受检修改，�
 [其他 agent 的查找与连接说明](docs/DISCOVERY.md)。
 目录中的名称为 `io.github.Hachimeder/maxplus2-mcp`；连接方式为本地 stdio。
 
+## 数字电路（数电）实验中的 AI 辅助
+
+如果你在寻找「MAX+plus II AI 辅助工具」「MaxPlus2 MCP」「GDF 原理图解析与
+编辑」或「SCF 波形自动生成与仿真」，本项目提供相应的本地工具。AI 可以创建
+和修改原理图、准备波形激励、编辑 AHDL/VHDL/Verilog 源码，再调用原厂编译器
+和仿真器读取实际报告与结果。它也适用于 Altera FPGA/CPLD 工程的文件处理。
+
+常见问题是「AI 能不能直接画 GDF、填写 SCF、操作 MAX+PLUS II？」：连接本地
+MCP 后，可以使用对应文件工具及项目自带的 Windows 自动化后端；具体支持范围
+见下面的能力表及 [格式说明](docs/FORMATS.md)，验证证据见 [测试说明](docs/VERIFICATION.md)。
+
+在 GitHub 中可直接搜索 `MaxPlus2 MCP`、`MaxPlus II MCP`、`数字电路 MCP`
+或 `数电 MCP`。按场景查找也可使用 `topic:altera topic:mcp`、
+`topic:cpld topic:mcp`、`topic:waveform-simulation topic:mcp`。
+
 ## 能力
 
 | 范围 | 功能 |

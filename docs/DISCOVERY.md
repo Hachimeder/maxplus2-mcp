@@ -46,11 +46,32 @@ Use any of these repository searches on GitHub; quote software names containing 
 
 ```text
 maxplus2-mcp
+MaxPlus2 MCP
+"MaxPlus II" MCP
+数字电路 MCP
+数电 MCP
 maxplus2 mcp in:name,description,readme
 "MAX+plus II" mcp in:description,readme
 user:Hachimeder maxplus2
 topic:maxplus-ii topic:mcp
+topic:altera topic:mcp
+topic:cpld topic:mcp
+topic:waveform-simulation topic:mcp
 ```
+
+GitHub 默认仓库搜索包含名称、描述和主题；加 `in:readme` 才会把 README
+内容也纳入相应查询。因此关键的软件名称和用途同时出现在 About 与 README。
+主题覆盖 MCP、Altera FPGA/CPLD、数字逻辑、AHDL/VHDL/Verilog、GDF/SCF、
+原理图、波形仿真和 Windows agent 自动化。
+
+GitHub's default repository search includes names, descriptions and topics. Use
+`in:readme` to include README content in the query. Key software names and use cases
+therefore appear in both About and README. Topics cover MCP, Altera FPGA/CPLD,
+digital logic, AHDL/VHDL/Verilog, GDF/SCF, schematics, waveform simulation and Windows
+agent automation.
+
+依据 / Sources: [GitHub repository search](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories),
+[GitHub topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 
 [直接搜索项目名 / Search project name](https://github.com/search?q=maxplus2-mcp&type=repositories)
 
