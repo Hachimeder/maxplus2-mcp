@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {PACKAGE_VERSION} from './helpers/package-version.mjs';
 /** Real Windows backend plus an ordinary MCP client, without an agent SDK.
  * Native input is exercised only in the helper's own disposable WinForms test
  * window. Any user's already-open MAX+plus II window is observed read-only.
@@ -51,7 +52,7 @@ async function call(name,args={}){const r=await request('tools/call',{name,argum
 let windows=[],connected=false;
 try{
   await check('a plain stdio client initializes with the standard desktop tool schemas',async()=>{
-    const init=await request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'plain-native-e2e',version:'1'}});assert.equal(init.serverInfo.version,'0.10.1');
+    const init=await request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'plain-native-e2e',version:'1'}});assert.equal(init.serverInfo.version,PACKAGE_VERSION);
     server.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
     const list=await request('tools/list',{});assert.equal(list.tools.filter(t=>t.name.startsWith('desktop_')).length,6);
     assert.ok(list.tools.find(t=>t.name==='desktop_action').inputSchema.properties.action.enum.includes('move'));return `${list.tools.length} tools`;

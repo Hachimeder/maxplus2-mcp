@@ -10,6 +10,8 @@ test('plain stdio client discovers all tools and reads both installed guides',as
  const client=new PlainMcpClient(workspace);
  try{
   const initialized=await client.initialize();assert.equal(initialized.serverInfo.name,'maxplus2-mcp');
+  const pkg=JSON.parse(fs.readFileSync(new URL('../package.json',import.meta.url),'utf8'));
+  assert.equal(initialized.serverInfo.version,pkg.version);
   const {tools}=await client.request('tools/list');assert.equal(tools.length,68);assert.equal(new Set(tools.map(t=>t.name)).size,68);
   for(const tool of tools){assert.equal(tool.inputSchema.type,'object');assert.ok(tool.description);assert.ok(tool.annotations);}
   const {resources}=await client.request('resources/list');assert.equal(resources.length,2);

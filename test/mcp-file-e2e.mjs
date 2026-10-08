@@ -1,3 +1,4 @@
+import {PACKAGE_VERSION} from './helpers/package-version.mjs';
 /** Standard external MCP client: file-first workflows without any agent SDK. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -42,7 +43,7 @@ const edits=[{signal:'A',events:[{time:0,value:1},{time:125.5,value:0},{time:250
 try{
   await check('ordinary client discovers file tools and both standard guide resources',async()=>{
     const init=await request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'plain-file-e2e',version:'1'}});
-    assert.equal(init.serverInfo.version,'0.10.1');server.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
+    assert.equal(init.serverInfo.version,PACKAGE_VERSION);server.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
     const list=await request('tools/list',{});assert.ok(list.tools.length>=50);
     for(const name of ['project_parse_file','scf_edit','netlist_export'])assert.ok(list.tools.some(t=>t.name===name));
     const resources=await request('resources/list',{});assert.equal(resources.resources.length,2);

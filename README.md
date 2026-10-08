@@ -1,17 +1,21 @@
 # maxplus2-mcp
 
+[简体中文](README.md) | [English](README.en.md)
+
 让支持 MCP 的 AI agent 使用 MAX+plus II：读取和修改工程、GDF 原理图、SYM
 符号和 SCF 波形，运行原厂编译与仿真，并操作 Windows 原生界面。
 
-当前版本 **0.10.1**，提供 **68 个工具**，采用本地 **stdio MCP**。
+当前版本 **0.10.2**，提供 **68 个工具**，采用本地 **stdio MCP**。
 运行时只使用 Node.js 内置模块，不需要安装 npm 依赖。
 Windows 界面后端属于本项目，通过 Win32 和 UI Automation 工作；任何能连接
 本地 stdio MCP 的客户端都可调用，无需 Codex Computer Use 或其他 agent SDK。
 
-**English:** An agent-independent, file-first MCP server for MAX+plus II. It provides
-project authoring, GDF/SYM geometry and connectivity editing, SCF waveform editing,
-native compilation/simulation, and a standalone Windows desktop backend.
-Connect from any local stdio MCP client. No npm runtime dependencies.
+项目把工程文件解析、原厂命令行与 Windows 界面操作组合在一个服务中。
+AI 可以先读取实际电路和波形，以文件方式进行受检修改，再通过原厂工具验证
+结果；遇到向导或未解码的编辑器属性时，使用项目自带的界面后端继续操作。
+
+**下载：** [最新 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/latest)
+提供精简发行包、完整源码包和 SHA-256 校验文件。
 
 ## 能力
 
@@ -35,6 +39,19 @@ Connect from any local stdio MCP client. No npm runtime dependencies.
 你自行安装并取得适用许可的 **MAX+plus II**。原厂工具链曾在 10.2 上验证。
 界面操作还需要 .NET Framework 4.8 和已登录、未锁定的交互式桌面。
 本仓库不包含 MAX+plus II 安装包、程序、设备库或许可证。
+
+### 使用 Release 发行包
+
+1. 从 [v0.10.2 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/tag/v0.10.2)
+   下载 `maxplus2-mcp-v0.10.2.zip` 并解压到固定目录。
+2. 确认本机已安装 Node.js；执行 `node --version` 检查。
+3. 按下面的配置示例连接 MCP 客户端，填写实际软件安装目录和工程目录。
+
+发行包包含运行源码、Windows 后端源码、两种语言的介绍及操作文档。
+运行时不需要 Git，不需要执行 npm install；Windows 后端首次使用时自动编译。
+`maxplus2-mcp-v0.10.2-source.zip` 另包含开发脚本、公开测试和 CI 模板，适合开发与贡献。
+
+### 从源码安装
 
 ```powershell
 git clone https://github.com/Hachimeder/maxplus2-mcp.git
@@ -96,6 +113,8 @@ node scripts/local-startup.mjs --check --root "C:\maxplus2" --workspace "C:\fpga
 
 ## 验证与开发
 
+以下开发命令在 Git 克隆目录或完整源码包中运行：
+
 ```powershell
 npm run audit:public
 npm test
@@ -115,6 +134,7 @@ npm run test:native
 
 公开测试中的分页 GDF 在运行时由自制符号生成；SCF 样例来自自制 XOR 工程，
 不包含私人课程实验或本机路径。贡献时请运行检查，并使用可公开的最小复现。
+测试范围及实测结果见 [验证说明](docs/VERIFICATION.md)。
 
 ## 已知边界
 

@@ -56,7 +56,7 @@ import { fileDigest,writablePath,isBackupPath } from './lib/workspace.mjs';
 import {compileCachePlan,invalidateCompileCache} from './lib/compile-cache.mjs';
 
 const SERVER_NAME = 'maxplus2-mcp';
-const SERVER_VERSION = '0.10.1';
+const SERVER_VERSION = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf8')).version;
 
 const SUPPORTED_PROTOCOL_VERSIONS = ['2024-11-05', '2025-03-26', '2025-06-18', '2025-11-25'];
 const DEFAULT_PROTOCOL_VERSION = '2025-06-18';

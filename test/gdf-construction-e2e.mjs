@@ -1,3 +1,4 @@
+import {PACKAGE_VERSION} from './helpers/package-version.mjs';
 /** Plain MCP client creates a binary schematic from scratch and verifies two
  * independently specified truth tables using the actual original simulator. */
 import assert from 'node:assert/strict';
@@ -24,7 +25,7 @@ function truth(trace,expected){const expectations=expected.map((Y,i)=>{const row
 let project,blank,initial,constructed,xor,input,output,and;
 try{
   await check('ordinary client discovers all current tools and construction annotations',async()=>{
-    const r=await request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'plain-construction-client',version:'1'}});assert.equal(r.serverInfo.version,'0.10.1');child.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
+    const r=await request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'plain-construction-client',version:'1'}});assert.equal(r.serverInfo.version,PACKAGE_VERSION);child.stdin.write(JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'})+'\n');
     const list=await request('tools/list');assert.ok(list.tools.length>=50);assert.equal(list.tools.find(t=>t.name==='gdf_construct').annotations.destructiveHint,true);assert.equal(list.tools.find(t=>t.name==='gdf_symbol_library').annotations.readOnlyHint,true);
   });
   await check('blank project and original SYM pins are available over standard MCP',async()=>{

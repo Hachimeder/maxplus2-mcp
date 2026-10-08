@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 import {TOOLS} from '../server.mjs';
+const {version}=JSON.parse(fs.readFileSync(new URL('../package.json',import.meta.url),'utf8'));
 const names=new Set(TOOLS.map(t=>t.name));
 if(names.size!==TOOLS.length)throw new Error('Duplicate tool names');
-const lines=['# MCP tools','',`Version 0.10.1 exposes ${TOOLS.length} tools through tools/list.`,
+const lines=['# MCP tools','',`Version ${version} exposes ${TOOLS.length} tools through tools/list.`,
  '', 'Descriptions and parameters below are generated from the same definitions used by the server.',
  'Inspect the live schema for complete constraints. Paths are scoped to the selected workspace or project.', ''];
 for(const tool of TOOLS){

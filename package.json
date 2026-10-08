@@ -1,6 +1,6 @@
 {
   "name": "maxplus2-mcp",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "private": true,
   "description": "Agent-independent MCP for MAX+plus II: file-first GDF netlist and SCF read/edit, project authoring, original CLI compilation/simulation and standalone Windows desktop control.",
   "type": "module",
@@ -17,7 +17,8 @@
     "test:quick": "node run-all.mjs",
     "test:native": "node run-all.mjs --native",
     "test:desktop": "node test/desktop-native-e2e.mjs",
-    "audit:public": "node scripts/audit-public.mjs"
+    "audit:public": "node scripts/audit-public.mjs",
+    "package:release": "node scripts/package-release.mjs"
   },
   "license": "MIT",
   "repository": {

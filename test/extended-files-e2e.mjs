@@ -1,3 +1,4 @@
+import {PACKAGE_VERSION} from './helpers/package-version.mjs';
 /** Actual ordinary stdio client exercises all new transaction boundaries. */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -12,7 +13,7 @@ async function check(name,fn){await fn();passed++;console.log('PASS '+name);}
 async function error(name,args,pattern){const r=await client.request('tools/call',{name,arguments:args});assert.equal(r.isError,true);assert.match(r.content[0].text,pattern);}
 try{
  await check('standard MCP exposes all new files and corrected native text flag schemas',async()=>{
-  assert.equal((await client.initialize()).serverInfo.version,'0.10.1');const r=await client.request('tools/list');
+  assert.equal((await client.initialize()).serverInfo.version,PACKAGE_VERSION);const r=await client.request('tools/list');
   assert.equal(r.tools.length,68);
   for(const n of ['gdf_graphics_edit','gdf_text_edit','gdf_symbol_refresh','gdf_declarations','gdf_declarations_edit','sym_inspect','sym_edit','sym_create','scf_structure','scf_structure_edit','scf_create'])assert.ok(r.tools.some(t=>t.name===n),n);
   const fields=r.tools.find(t=>t.name==='sym_edit').inputSchema.properties.operations.items.properties;assert.equal(fields.zoom.type,'boolean');assert.equal(fields.color.maximum,15);assert.deepEqual(fields.nameAttributeName.enum,['SYM_NAME','MACRO_NAME']);
