@@ -1,12 +1,16 @@
-# maxplus2-mcp
+# maxplus2-mcp — MAX+plus II MCP Server
 
 [简体中文](README.md) | [English](README.en.md)
+
+An Altera MAX+PLUS II / MaxPlus II / MaxPlus2 tool for AI-assisted digital logic
+labs and FPGA/CPLD projects, including AHDL, VHDL, Verilog, GDF schematics,
+SYM symbols and SCF waveforms.
 
 An MCP server that lets AI agents work with MAX+plus II: read and edit projects,
 GDF schematics, SYM symbols and SCF waveforms, run the original compiler and
 simulator, and operate the native Windows interface.
 
-Version **0.10.2** exposes **68 tools** over local **stdio MCP**. The runtime uses
+Version **0.10.3** exposes **68 tools** over local **stdio MCP**. The runtime uses
 only Node.js built-in modules and requires no npm dependencies. The Windows
 backend belongs to this project and uses Win32 and UI Automation. Any client
 that supports local stdio MCP can connect; no Codex Computer Use or agent SDK is
@@ -19,7 +23,13 @@ properties that have not been decoded remain accessible through the standalone
 desktop backend.
 
 **Download:** The [latest Release](https://github.com/Hachimeder/maxplus2-mcp/releases/latest)
-provides a compact runtime package, a complete source package and SHA-256 checksums.
+provides a compact runtime package, a complete source package, a standard MCPB
+bundle, registry metadata and SHA-256 checksums.
+
+**Find and connect:** [Official MCP Registry](https://registry.modelcontextprotocol.io/?q=maxplus2) ·
+[GitHub search](https://github.com/search?q=maxplus2-mcp&type=repositories) ·
+[Discovery guide for other agents](docs/DISCOVERY.md).
+Registry name: `io.github.Hachimeder/maxplus2-mcp`. Transport: local stdio.
 
 ## Capabilities
 
@@ -49,8 +59,12 @@ executables, device libraries or license files.
 
 ### Use the Release package
 
-1. Download `maxplus2-mcp-v0.10.2.zip` from the
-   [v0.10.2 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/tag/v0.10.2)
+Windows clients supporting MCPB can import `maxplus2-mcp-v0.10.3.mcpb` and select
+the installation and project directories. Other stdio MCP clients can use the ZIP
+configuration steps below.
+
+1. Download `maxplus2-mcp-v0.10.3.zip` from the
+   [v0.10.3 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/tag/v0.10.3)
    and extract it to a stable directory.
 2. Install Node.js separately if necessary and check it with `node --version`.
 3. Connect your MCP client using the configuration below, replacing the paths
@@ -59,7 +73,7 @@ executables, device libraries or license files.
 The runtime package includes runtime source, Windows backend source, both README
 pages and operating guides. Git and npm install are not required to run it. The
 Windows helper compiles automatically on first use.
-`maxplus2-mcp-v0.10.2-source.zip` additionally includes development scripts, public
+`maxplus2-mcp-v0.10.3-source.zip` additionally includes development scripts, public
 tests and the CI template for development and contributions.
 
 ### Install from source

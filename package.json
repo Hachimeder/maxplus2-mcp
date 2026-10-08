@@ -1,8 +1,10 @@
 {
   "name": "maxplus2-mcp",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "private": true,
-  "description": "Agent-independent MCP for MAX+plus II: file-first GDF netlist and SCF read/edit, project authoring, original CLI compilation/simulation and standalone Windows desktop control.",
+  "description": "MAX+plus II MCP 服务器：原理图、波形、编译仿真。Agent-independent MCP for Altera MaxPlus2: GDF/SYM/SCF editing, native compilation/simulation and standalone Windows automation.",
+  "mcpName": "io.github.Hachimeder/maxplus2-mcp",
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "maxplus2", "maxplus-ii", "altera", "fpga", "cpld", "eda", "digital-logic", "gdf", "sym", "scf", "ahdl", "vhdl", "verilog", "schematic", "waveform", "数字电路", "原理图", "波形仿真"],
   "type": "module",
   "main": "server.mjs",
   "bin": {

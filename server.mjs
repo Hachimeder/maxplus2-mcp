@@ -4,10 +4,9 @@
  *
  * An MCP (Model Context Protocol) server for Altera MAX+PLUS II.
  *
- * Why this exists: MAX+PLUS II ships a usable command-line interface
- * (maxplus2.exe + setacf.exe) but has no MCP server anywhere in the
- * ecosystem. This wraps the verified CLI surface so an agent can drive a
- * MAX+PLUS II project without clicking through a 2002-era GUI.
+ * MAX+PLUS II ships a usable command-line interface (maxplus2.exe +
+ * setacf.exe). This server combines its verified CLI surface with decoded
+ * project formats and an independent Windows desktop backend.
  *
  * Design constraints, learned from the shipped binaries:
  *   - The GUI is 32-bit Win32 and may block on modal dialogs, so every child

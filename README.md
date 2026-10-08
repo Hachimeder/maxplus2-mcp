@@ -1,11 +1,14 @@
-# maxplus2-mcp
+# maxplus2-mcp — MAX+plus II MCP 服务器
 
 [简体中文](README.md) | [English](README.en.md)
 
 让支持 MCP 的 AI agent 使用 MAX+plus II：读取和修改工程、GDF 原理图、SYM
 符号和 SCF 波形，运行原厂编译与仿真，并操作 Windows 原生界面。
 
-当前版本 **0.10.2**，提供 **68 个工具**，采用本地 **stdio MCP**。
+适用于 Altera MAX+PLUS II / MaxPlus II / MaxPlus2 的数字电路实验与 FPGA/CPLD
+工程，包含 AHDL、VHDL、Verilog 源码和专有原理图、波形文件处理。
+
+当前版本 **0.10.3**，提供 **68 个工具**，采用本地 **stdio MCP**。
 运行时只使用 Node.js 内置模块，不需要安装 npm 依赖。
 Windows 界面后端属于本项目，通过 Win32 和 UI Automation 工作；任何能连接
 本地 stdio MCP 的客户端都可调用，无需 Codex Computer Use 或其他 agent SDK。
@@ -15,7 +18,12 @@ AI 可以先读取实际电路和波形，以文件方式进行受检修改，�
 结果；遇到向导或未解码的编辑器属性时，使用项目自带的界面后端继续操作。
 
 **下载：** [最新 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/latest)
-提供精简发行包、完整源码包和 SHA-256 校验文件。
+提供精简发行包、完整源码包、标准 MCPB 安装包、目录元数据和 SHA-256 校验文件。
+
+**查找与连接：** [官方 MCP 目录](https://registry.modelcontextprotocol.io/?q=maxplus2) ·
+[GitHub 搜索](https://github.com/search?q=maxplus2-mcp&type=repositories) ·
+[其他 agent 的查找与连接说明](docs/DISCOVERY.md)。
+目录中的名称为 `io.github.Hachimeder/maxplus2-mcp`；连接方式为本地 stdio。
 
 ## 能力
 
@@ -42,14 +50,17 @@ AI 可以先读取实际电路和波形，以文件方式进行受检修改，�
 
 ### 使用 Release 发行包
 
-1. 从 [v0.10.2 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/tag/v0.10.2)
-   下载 `maxplus2-mcp-v0.10.2.zip` 并解压到固定目录。
+支持 MCPB 的 Windows 客户端可导入 `maxplus2-mcp-v0.10.3.mcpb`，在客户端中
+选择软件安装目录和工程目录。其他 stdio MCP 客户端使用下面的 ZIP 配置步骤。
+
+1. 从 [v0.10.3 Release](https://github.com/Hachimeder/maxplus2-mcp/releases/tag/v0.10.3)
+   下载 `maxplus2-mcp-v0.10.3.zip` 并解压到固定目录。
 2. 确认本机已安装 Node.js；执行 `node --version` 检查。
 3. 按下面的配置示例连接 MCP 客户端，填写实际软件安装目录和工程目录。
 
 发行包包含运行源码、Windows 后端源码、两种语言的介绍及操作文档。
 运行时不需要 Git，不需要执行 npm install；Windows 后端首次使用时自动编译。
-`maxplus2-mcp-v0.10.2-source.zip` 另包含开发脚本、公开测试和 CI 模板，适合开发与贡献。
+`maxplus2-mcp-v0.10.3-source.zip` 另包含开发脚本、公开测试和 CI 模板，适合开发与贡献。
 
 ### 从源码安装
 

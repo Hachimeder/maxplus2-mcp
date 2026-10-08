@@ -1,6 +1,6 @@
 # MCP tools
 
-Version 0.10.2 exposes 68 tools through tools/list.
+Version 0.10.3 exposes 68 tools through tools/list.
 
 Descriptions and parameters below are generated from the same definitions used by the server.
 Inspect the live schema for complete constraints. Paths are scoped to the selected workspace or project.

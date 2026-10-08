@@ -1,0 +1,29 @@
+# maxplus2-mcp — MAX+plus II MCP Server
+
+> Local, agent-independent Model Context Protocol server for Altera MAX+plus II
+> (MAX+PLUS II, MaxPlus II, MaxPlus2). 数字电路实验：GDF 原理图、SYM 符号、SCF 波形、编译仿真。
+
+## Project
+- [Canonical repository](https://github.com/Hachimeder/maxplus2-mcp): MIT-licensed source and issues.
+- [中文介绍](https://github.com/Hachimeder/maxplus2-mcp/blob/main/README.md): 安装、能力、限制和验证证据。
+- [English introduction](https://github.com/Hachimeder/maxplus2-mcp/blob/main/README.en.md): Setup, capabilities, limits and verification evidence.
+- [Release downloads](https://github.com/Hachimeder/maxplus2-mcp/releases/latest): Runtime ZIP, source ZIP, MCPB bundle, registry metadata and SHA-256 checksums.
+- [Discovery and connection](https://github.com/Hachimeder/maxplus2-mcp/blob/main/docs/DISCOVERY.md): Registry lookup, GitHub search, exact project identity and stdio configuration.
+- [Tool reference](https://github.com/Hachimeder/maxplus2-mcp/blob/main/docs/TOOLS.md): 68 MCP tools and input schemas.
+- [Format coverage](https://github.com/Hachimeder/maxplus2-mcp/blob/main/docs/FORMATS.md): Decoded formats and remaining limitations.
+- [Verification evidence](https://github.com/Hachimeder/maxplus2-mcp/blob/main/docs/VERIFICATION.md): Portable and native test evidence.
+
+## Registry identity
+Server name: io.github.Hachimeder/maxplus2-mcp
+Transport: local stdio. This repository is not a remotely hosted MCP endpoint.
+Registry API: https://registry.modelcontextprotocol.io/v0.1/servers?search=maxplus2&version=latest
+
+## Requirements and scope
+Node.js 18+; no npm dependencies. Native compilation, simulation and desktop control
+require Windows, a separately installed and licensed MAX+plus II, and for desktop
+control .NET Framework 4.8 with an interactive unlocked desktop. File operations
+are portable. No vendor application, device library or license is distributed.
+The Windows backend is included as source and does not depend on Codex Computer Use.
+Discovery does not install the server: configure a local MCP client, then inspect
+tools/list and call detect_install before native operations. SCF is supported;
+support for Quartus VWF is not implied. Hardware programming is not verified.

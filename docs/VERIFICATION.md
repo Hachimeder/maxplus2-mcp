@@ -1,6 +1,6 @@
 # Public-source verification
 
-Version: 0.10.2. Tool count: 68. Runtime: Node.js 24.14.0.
+Version: 0.10.3. Tool count: 68. Runtime: Node.js 24.14.0.
 
 The public tree was tested independently of the original private workspace.
 The default test runner completed **27 suites, 240 passing checks, zero failures**.
@@ -14,7 +14,8 @@ compilation/simulation, EDIF export, GDF/SYM edits, SCF edits, source identity,
 library parsing and desktop backend tests. A startup relocation assumption found
 during that run was corrected; all 13 startup checks passed in a targeted rerun.
 All other native suites passed. Version 0.10.2 adds release packaging and bilingual
-introduction pages; those tool implementations are unchanged. Hardware programming
+introduction pages; version 0.10.3 adds MCPB distribution and discovery metadata.
+The tool implementations are unchanged. Hardware programming
 was not tested.
 
 Windows teardown was corrected to close test clients and tool children before

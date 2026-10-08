@@ -1,0 +1,43 @@
+{
+  "manifest_version": "0.3",
+  "name": "maxplus2-mcp",
+  "display_name": "MAX+plus II MCP / 数字电路 AI 工具",
+  "version": "0.10.3",
+  "description": "MAX+plus II MCP: GDF/SYM/SCF editing, compile/simulation and Windows automation. 原理图、符号、波形编辑与编译仿真。",
+  "long_description": "Agent-independent local MCP server for Altera MAX+plus II (MaxPlus2), with 68 tools for digital logic projects, GDF schematics, SYM symbols, SCF waveforms, original compilation/simulation and a standalone Win32/UIA backend. Supports any client that can launch a local stdio MCP server. Requires a separately installed, licensed MAX+plus II for native operations. 面向数字电路实验的本地 MCP 服务，无需 Codex Computer Use；原厂功能需要自行安装 MAX+plus II。",
+  "author": {"name": "Hachimeder", "url": "https://github.com/Hachimeder"},
+  "repository": {"type": "git", "url": "https://github.com/Hachimeder/maxplus2-mcp.git"},
+  "homepage": "https://github.com/Hachimeder/maxplus2-mcp",
+  "documentation": "https://github.com/Hachimeder/maxplus2-mcp#readme",
+  "support": "https://github.com/Hachimeder/maxplus2-mcp/issues",
+  "license": "MIT",
+  "keywords": ["mcp", "maxplus2", "maxplus-ii", "altera", "fpga", "eda", "digital-logic", "gdf", "sym", "scf", "ahdl", "vhdl", "verilog", "schematic", "waveform", "数字电路", "原理图", "波形仿真"],
+  "tools_generated": true,
+  "compatibility": {"platforms": ["win32"], "runtimes": {"node": ">=18"}},
+  "server": {
+    "type": "node",
+    "entry_point": "server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server.mjs"],
+      "env": {
+        "MAXPLUS2_ROOT": "${user_config.install_root}",
+        "MAXPLUS2_WORKSPACE": "${user_config.workspace}"
+      }
+    }
+  },
+  "user_config": {
+    "install_root": {
+      "type": "directory",
+      "title": "MAX+plus II installation / 软件安装目录",
+      "description": "Directory containing your separately installed maxplus2.exe. 选择本机包含 maxplus2.exe 的安装目录。",
+      "required": true
+    },
+    "workspace": {
+      "type": "directory",
+      "title": "Project workspace / 工程目录",
+      "description": "Directory containing the projects you want the agent to work on. 选择需要 AI 处理的工程目录。",
+      "required": true
+    }
+  }
+}
